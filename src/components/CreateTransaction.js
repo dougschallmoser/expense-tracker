@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { GlobalContext } from '../contexts/GlobalState';
+import { GlobalContext } from '../contexts/Store';
 
 function CreateTransaction() {
 
