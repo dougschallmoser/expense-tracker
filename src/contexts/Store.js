@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from 'react';
 import axios from 'axios';
-import AppReducer from '../reducers/AppReducer'
+import AppReducer from './AppReducer'
 
 const initialState = {
   transactions: [],
@@ -42,7 +42,6 @@ export const GlobalProvider = ({ children }) => {
       })
     }
   }
-
 
   return (
     <GlobalContext.Provider value={{
