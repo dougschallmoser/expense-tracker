@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
 import Transaction from './Transaction';
-import { GlobalContext } from '../contexts/Store';
+import { TransactionContext } from '../contexts/TransactionContext';
 
 function TransactionList() {
 
-  const { transactions } = useContext(GlobalContext);
+  const { transactions } = useContext(TransactionContext);
 
   const renderTransactions = transactions.map(transaction => {
     return (

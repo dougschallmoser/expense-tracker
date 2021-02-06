@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
-import { GlobalContext } from '../contexts/Store';
+import { TransactionContext } from '../contexts/TransactionContext';
 
 function CreateTransaction() {
 
-  const { addTransaction } = useContext(GlobalContext);
+  const { addTransaction } = useContext(TransactionContext);
 
   const [transaction, setTransaction] = useState({
     subject: '',

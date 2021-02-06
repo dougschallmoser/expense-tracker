@@ -4,18 +4,18 @@ import Balance from './Balance';
 import IncomeExpenses from './IncomeExpenses';
 import TransactionList from './TransactionList';
 import CreateTransaction from './CreateTransaction';
-import { GlobalProvider } from '../contexts/Store';
+import { TransactionContextProvider } from '../contexts/TransactionContext';
 
 function App() {
   return (
     <div className="main-container">
-      <GlobalProvider>
+      <TransactionContextProvider>
         <Header />
         <Balance />
         <IncomeExpenses />
         <TransactionList />
         <CreateTransaction />
-      </GlobalProvider>
+      </TransactionContextProvider>
     </div>
   )
 }

@@ -1,16 +1,16 @@
 import React, { createContext, useReducer } from 'react';
 import axios from 'axios';
-import AppReducer from './AppReducer'
+import TransactionReducer from './TransactionReducer'
 
 const initialState = {
   transactions: [],
   loading: true
 }
 
-export const GlobalContext = createContext(initialState);
+export const TransactionContext = createContext(initialState);
 
-export const GlobalProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(AppReducer, initialState);
+export const TransactionContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(TransactionReducer, initialState);
 
   // Actions
   function deleteTransaction(id) {
@@ -44,7 +44,7 @@ export const GlobalProvider = ({ children }) => {
   }
 
   return (
-    <GlobalContext.Provider value={{
+    <TransactionContext.Provider value={{
       transactions: state.transactions,
       addTransaction,
       deleteTransaction,
@@ -54,6 +54,6 @@ export const GlobalProvider = ({ children }) => {
 
     }}>
       {children}
-    </GlobalContext.Provider>
+    </TransactionContext.Provider>
   )
 }

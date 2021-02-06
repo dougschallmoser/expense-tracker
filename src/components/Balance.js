@@ -1,10 +1,10 @@
 import React, { useContext } from 'react';
-import { GlobalContext } from '../contexts/Store';
+import { TransactionContext } from '../contexts/TransactionContext';
 import { numberWithCommas } from '../utils/format';
 
 function Balance() {
 
-  const { transactions } = useContext(GlobalContext);
+  const { transactions } = useContext(TransactionContext);
 
     const arrAmounts = transactions.map(transaction => transaction.amount)
     const total = arrAmounts.reduce((acc, curr) => (acc + curr), 0).toFixed(2)
