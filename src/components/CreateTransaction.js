@@ -43,14 +43,14 @@ function CreateTransaction() {
       <hr />
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Subject</label>
-          <input type="text" name="subject" value={transaction.subject} onChange={handleChange} />
+          <label>Subject:</label>
+          <input type="text" name="subject" placeholder="What was this for?" value={transaction.subject} onChange={handleChange} />
         </div>
         <div>
-          <label>Amount</label>
-          <input type="number" name="amount" value={transaction.amount} onChange={handleChange} />
+          <label>Amount:</label>
+          <input type="number" min="0" placeholder="Enter positive dollar amount" name="amount" value={transaction.amount} onChange={handleChange} />
         </div>
-        <h4>Is this income or an expense?</h4>
+        <h4>Was this income or an expense?</h4>
         <div className="amount-type">
           <input type="radio" id="income-type" name="type" value="income-type" onChange={handleChange} checked={transaction.type === "income-type"} />
           <label htmlFor="income-type">Income (+)</label>
