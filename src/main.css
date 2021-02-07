@@ -149,11 +149,12 @@ form input {
   font-size: 16px;
   border: 1px solid #dfdfdf;
   border-radius: 4px;
+  cursor: pointer;
 }
 
 .amount-type input[type="radio"]:checked + label,
 .amount-type input[type="radio"]:focus + label {
-  background-color:rgb(225, 245, 255);
-  border-color: rgb(68, 161, 204);
+  background-color:rgb(232, 208, 255);
+  border-color: rgb(109, 68, 204);
 }
 
