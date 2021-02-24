@@ -5,7 +5,7 @@
 
 A custom expense tracker for keeping an accurate record of your money inflow and outflow.  Built with React/TypeScript. Utilizes Context API + userReducer for global state management.
 
-[Live Demo](https://photography-store.netlify.app/)
+[Live Demo](https://doug-expense-tracker.netlify.app/)
 
 
 ## Installation
