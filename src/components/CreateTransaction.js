@@ -44,6 +44,7 @@ function CreateTransaction() {
   }
 
   const disabled = transaction.subject === '' || transaction.amount === '' || transaction.type === ''
+  const { subject, amount, type } = transaction;
 
   return (
     <>
@@ -52,20 +53,49 @@ function CreateTransaction() {
       <form onSubmit={handleSubmit}>
         <div>
           <label>Subject:</label>
-          <input type="text" name="subject" placeholder="What was this for?" value={transaction.subject} onChange={handleChange} />
+          <input 
+            type="text"
+            name="subject"
+            placeholder="What was this for?"
+            value={subject}
+            onChange={handleChange}
+          />
         </div>
         <div>
           <label>Amount:</label>
-          <input type="text" min="0" placeholder="Enter positive dollar amount" name="amount" value={transaction.amount} onChange={handleChange} />
+          <input
+            type="text"
+            min="0"
+            placeholder="Enter positive dollar amount"
+            name="amount"
+            value={amount}
+            onChange={handleChange}
+          />
         </div>
         <h4>Is this income or an expense?</h4>
-        <div className="amount-type">
-          <input type="radio" id="income-type" name="type" value="income-type" onChange={handleChange} checked={transaction.type === "income-type"} />
-          <label htmlFor="income-type">Income (+)</label>
-        </div>
-        <div className="amount-type">
-          <input type="radio" id="expense-type" name="type" value="expense-type" onChange={handleChange} checked={transaction.type === "expense-type"} />
-          <label htmlFor="expense-type">Expense (-)</label>
+        <div className="amount-type-container">
+          <div className="amount-type">
+            <input
+              type="radio"
+              id="income-type"
+              name="type"
+              value="income-type"
+              onChange={handleChange}
+              checked={type === "income-type"}
+            />
+            <label htmlFor="income-type">Income (+)</label>
+          </div>
+          <div className="amount-type">
+            <input
+              type="radio"
+              id="expense-type"
+              name="type"
+              value="expense-type"
+              onChange={handleChange}
+              checked={type === "expense-type"}
+            />
+            <label htmlFor="expense-type">Expense (-)</label>
+          </div>
         </div>
         <button disabled={disabled} id="submit-btn">Add Transaction</button>
       </form>
