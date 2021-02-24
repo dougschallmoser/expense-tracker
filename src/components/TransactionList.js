@@ -14,10 +14,10 @@ function TransactionList() {
 
   return (
     <>
-      <h4>History</h4>
+      <h4>Transactions</h4>
       <hr />
       <ul className="transaction-list">
-        {!transactions.length && <div>No transactions.</div>}
+        {!transactions.length && <div>No transactions</div>}
         {renderTransactions}
       </ul>
     </>
