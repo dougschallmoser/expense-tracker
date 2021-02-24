@@ -72,7 +72,7 @@ function CreateTransaction() {
             onChange={handleChange}
           />
         </div>
-        <h4>Is this income or an expense?</h4>
+        <h4 className="center">Is this income or an expense?</h4>
         <div className="amount-type-container">
           <div className="amount-type">
             <input
