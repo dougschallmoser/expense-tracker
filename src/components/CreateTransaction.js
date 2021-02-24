@@ -12,6 +12,14 @@ function CreateTransaction() {
   })
 
   const handleChange = event => {
+    if (event.target.name === 'amount') {
+      const regexPattern = /^(\d+(\.\d{0,2})?|\.?\d{1,2})$/
+      if (!regexPattern.test(event.target.value)) {
+        return
+      }
+
+    }
+
     setTransaction({
       ...transaction,
       [event.target.name]: event.target.value
@@ -48,9 +56,9 @@ function CreateTransaction() {
         </div>
         <div>
           <label>Amount:</label>
-          <input type="number" min="0" placeholder="Enter positive dollar amount" name="amount" value={transaction.amount} onChange={handleChange} />
+          <input type="text" min="0" placeholder="Enter positive dollar amount" name="amount" value={transaction.amount} onChange={handleChange} />
         </div>
-        <h4>Was this income or an expense?</h4>
+        <h4>Is this income or an expense?</h4>
         <div className="amount-type">
           <input type="radio" id="income-type" name="type" value="income-type" onChange={handleChange} checked={transaction.type === "income-type"} />
           <label htmlFor="income-type">Income (+)</label>
