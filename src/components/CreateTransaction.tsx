@@ -11,7 +11,7 @@ function CreateTransaction() {
     type: ''
   })
 
-  const handleChange = event => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.name === 'amount') {
       const regexPattern = /^(\d+(\.\d{0,2})?|\.?\d{1,2})$/
       if (!regexPattern.test(event.target.value)) {
@@ -26,7 +26,7 @@ function CreateTransaction() {
     })
   }
 
-  const handleSubmit = event => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     
     const newObj = {
@@ -39,7 +39,8 @@ function CreateTransaction() {
 
     setTransaction({
       subject: '',
-      amount: ''
+      amount: '',
+      type: ''
     })
   }
 

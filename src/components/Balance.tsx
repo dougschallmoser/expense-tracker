@@ -6,13 +6,13 @@ function Balance() {
 
   const { transactions } = useContext(TransactionContext);
 
-    const arrAmounts = transactions.map(transaction => transaction.amount)
-    const total = arrAmounts.reduce((acc, curr) => (acc + curr), 0).toFixed(2)
+    const arrAmounts: number[] = transactions.map(transaction => parseInt(transaction.amount))
+    const total: string = arrAmounts.reduce((acc, curr) => (acc + curr), 0).toFixed(2)
 
   return (
     <div className="balance-container">
       <h4>YOUR BALANCE</h4>
-      <h1>${numberWithCommas(total)}</h1>
+      <h1>${numberWithCommas(parseInt(total))}</h1>
     </div>
   )
 }
