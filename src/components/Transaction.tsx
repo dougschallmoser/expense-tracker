@@ -10,7 +10,7 @@ function Transaction({ transaction }: Props) {
 
   const { deleteTransaction } = useContext(TransactionContext)
   const sign: string = parseFloat(transaction.amount) < 0 ? "-" : "+"
-  const amount: string = transaction.amount.toString();
+  const amount: string = parseFloat(transaction.amount).toFixed(2);
 
   return (
     <li className={parseInt(amount) < 0 ? "minus" : "plus"}>
