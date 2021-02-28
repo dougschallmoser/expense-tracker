@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { TransactionContext } from '../contexts/TransactionContext';
+import { formatAmount } from '../utils/format';
 
 function IncomeExpenses() {
 
@@ -13,11 +14,11 @@ function IncomeExpenses() {
     <div className="inc-exp-container">
       <div>
         <h4>INCOME</h4>
-        <p className="money plus">${income}</p>
+        <p className="money plus">${formatAmount(income)}</p>
       </div>
       <div>
         <h4>EXPENSES</h4>
-        <p className="money minus">-${expenses}</p>
+        <p className="money minus">-${formatAmount(expenses)}</p>
       </div>
     </div>
   )
