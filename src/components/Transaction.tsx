@@ -8,14 +8,13 @@ type Props = {
 
 function Transaction({ transaction }: Props) {
 
-
   const { deleteTransaction } = useContext(TransactionContext)
-  const sign: string = parseInt(transaction.amount) < 0 ? "-" : "+"
-
+  const sign: string = parseFloat(transaction.amount) < 0 ? "-" : "+"
+  const amount: string = transaction.amount.toString();
 
   return (
-    <li className={parseInt(transaction.amount) < 0 ? "minus" : "plus"}>
-      {transaction.subject} <span>{sign}${transaction.amount}</span>
+    <li className={parseInt(amount) < 0 ? "minus" : "plus"}>
+      {transaction.subject} <span>{sign}${amount[0] === "-" ? amount.substring(1) : amount}</span>
       <button
         className="delete-transaction"
         onClick={() => deleteTransaction(transaction.id)}
