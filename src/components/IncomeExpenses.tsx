@@ -5,9 +5,9 @@ function IncomeExpenses() {
 
   const { transactions } = useContext(TransactionContext);
 
-  const amounts: number[] = transactions.map(transaction => parseInt(transaction.amount))
+  const amounts: number[] = transactions.map(transaction => parseFloat(transaction.amount))
   const income: string = amounts.filter(amount => amount > 0).reduce((acc, curr) => (acc + curr), 0).toFixed(2)
-  const expenses: string = amounts.filter(amount => amount < 0).reduce((acc, curr) => (acc + curr), 0).toFixed(2)
+  const expenses: string = amounts.filter(amount => amount < 0).reduce((acc, curr) => (acc + curr), 0).toFixed(2).substring(1)
 
   return (
     <div className="inc-exp-container">
@@ -17,7 +17,7 @@ function IncomeExpenses() {
       </div>
       <div>
         <h4>EXPENSES</h4>
-        <p className="money minus">${expenses}</p>
+        <p className="money minus">-${expenses}</p>
       </div>
     </div>
   )
