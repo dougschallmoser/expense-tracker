@@ -14,7 +14,7 @@ function TransactionReducer(state: ApplicationState, action: StateAction) {
       }
 
     case ActionType.Delete:
-      const removedTransaction = state.transactions.find(trans => trans.id !== action.payload);
+      const removedTransaction = state.transactions.find(trans => trans.id === action.payload);
       state.transactions.splice(state.transactions.indexOf(removedTransaction!), 1);
       setStorage(state.transactions);
 
