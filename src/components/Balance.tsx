@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { TransactionContext } from '../contexts/TransactionContext';
-import { addCommas } from '../utils/format';
+import { formatAmount } from '../utils/format';
 
 function Balance() {
 
@@ -8,11 +8,12 @@ function Balance() {
 
     const arrAmounts: number[] = transactions.map(transaction => parseFloat(transaction.amount))
     const total: string = arrAmounts.reduce((acc, curr) => (acc + curr), 0).toFixed(2)
+    const sign: string = parseFloat(total) < 0 ? "-" : ""
 
   return (
     <div className="balance-container">
       <h4>YOUR BALANCE</h4>
-      <h1>${addCommas(total)}</h1>
+      <h1>{sign}${total[0] === "-" ? formatAmount(total).substring(1) : formatAmount(total)}</h1>
     </div>
   )
 }
