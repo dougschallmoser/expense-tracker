@@ -1,9 +1,7 @@
-import React from 'react';
-
 function Header() {
   return (
     <h2>
-      Expense Tracker
+      Doug's Expense Tracker
     </h2>
   )
 }
