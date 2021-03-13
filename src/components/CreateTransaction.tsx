@@ -52,9 +52,10 @@ function CreateTransaction() {
       <hr />
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Subject:</label>
+          <label htmlFor="subject">Subject:</label>
           <input 
             type="text"
+            id="subject"
             name="subject"
             placeholder="What was this for?"
             value={subject}
@@ -62,9 +63,10 @@ function CreateTransaction() {
           />
         </div>
         <div>
-          <label>Amount:</label>
+          <label htmlFor="amount">Amount:</label>
           <input
             type="text"
+            id="amount"
             min="0"
             placeholder="Enter positive dollar amount"
             name="amount"
