@@ -17,7 +17,6 @@ function CreateTransaction() {
       if (!regexPattern.test(event.target.value)) {
         return
       }
-
     }
 
     setTransaction({

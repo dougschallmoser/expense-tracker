@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { TransactionContext } from '../contexts/TransactionContext';
 import { formatAmount } from '../utils/format';
 
