@@ -50,7 +50,7 @@ describe('add transaction button functions properly', () => {
     userEvent.type(subjectInput, 'food')
     userEvent.type(amountInput, '34.19')
     userEvent.click(expenseRadioBtn)
-
+    
     expect(addTransactionBtn).toBeEnabled()
   })
 })
