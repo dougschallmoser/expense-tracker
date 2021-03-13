@@ -20,7 +20,7 @@ test('formatAmount function correctly formats currency with commas', () => {
   expect(formattedAmtTwo).toBe('121,870.02')
 })
 
-test('new transactions are able to be added to the transaction list', () => {
+test('create transactions happy path', () => {
   render(<App />)
 
   const addTransactionBtn = screen.getByRole('button', { name: /add transaction/i })
@@ -41,6 +41,15 @@ test('new transactions are able to be added to the transaction list', () => {
   userEvent.click(incomeRadioBtn)
   userEvent.click(addTransactionBtn)
 
+  // assert transaction quantity to be 2
   const listItems = screen.getAllByRole('listitem')
   expect(listItems).toHaveLength(2)
+
+  // delete most recently added transaction
+  const topDeleteBtn = screen.getAllByRole('button', { name: 'x' })[0]
+  userEvent.click(topDeleteBtn)
+
+  // assert transaction quantity to be 1
+  const newListItems = screen.getAllByRole('listitem')
+  expect(newListItems).toHaveLength(1)
 })
