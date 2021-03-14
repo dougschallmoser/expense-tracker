@@ -44,12 +44,4 @@ test('create transactions happy path', () => {
   // assert transaction quantity to be 2
   const listItems = screen.getAllByRole('listitem')
   expect(listItems).toHaveLength(2)
-
-  // delete most recently added transaction
-  const topDeleteBtn = screen.getAllByRole('button', { name: 'x' })[0]
-  userEvent.click(topDeleteBtn)
-
-  // assert transaction quantity to be 1
-  const newListItems = screen.getAllByRole('listitem')
-  expect(newListItems).toHaveLength(1)
 })
