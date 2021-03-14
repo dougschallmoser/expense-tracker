@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { TransactionContext } from '../contexts/TransactionContext';
 import { formatAmount } from '../utils/format';
 
@@ -8,7 +8,8 @@ function IncomeExpenses() {
 
   const amounts: number[] = transactions.map(transaction => parseFloat(transaction.amount))
   const income: string = amounts.filter(amount => amount > 0).reduce((acc, curr) => (acc + curr), 0).toFixed(2)
-  const expenses: string = amounts.filter(amount => amount < 0).reduce((acc, curr) => (acc + curr), 0).toFixed(2).substring(1)
+  const expenses: string = amounts.filter(amount => amount < 0).reduce((acc, curr) => (acc + curr), 0).toFixed(2)
+  const expensesRev = expenses === '0.00' ? expenses : expenses.substring(1)
 
   return (
     <div className="inc-exp-container">
@@ -18,7 +19,7 @@ function IncomeExpenses() {
       </div>
       <div>
         <h4>EXPENSES</h4>
-        <p className="money minus">-${formatAmount(expenses)}</p>
+        <p className="money minus">${formatAmount(expensesRev)}</p>
       </div>
     </div>
   )
