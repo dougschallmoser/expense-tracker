@@ -2,11 +2,7 @@ import { useContext } from 'react';
 import { TransactionContext } from '../contexts/TransactionContext';
 import { ITransaction } from '../types';
 
-type Props = {
-  transaction: ITransaction
-}
-
-function Transaction({ transaction }: Props) {
+function Transaction({ transaction }: { transaction: ITransaction }) {
 
   const { deleteTransaction } = useContext(TransactionContext)
   const sign: string = parseFloat(transaction.amount) < 0 ? "-" : "+"
