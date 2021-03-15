@@ -17,7 +17,7 @@ function Transaction({ transaction }: Props) {
       {transaction.subject} <span>{sign}${amount[0] === "-" ? amount.substring(1) : amount}</span>
       <button
         className="delete-transaction"
-        onClick={() => deleteTransaction(transaction.id)}
+        onClick={() => deleteTransaction!(transaction.id)}
       >
         x
       </button>

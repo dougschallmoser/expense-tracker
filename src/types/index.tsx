@@ -7,8 +7,8 @@ export interface ITransaction {
 export interface ApplicationState {
   transactions: ITransaction[],
   error?: string,
-  addTransaction?: any,
-  deleteTransaction?: any,
+  addTransaction?: (transaction: ITransaction) => void,
+  deleteTransaction?: (id: number) => void,
   loading: boolean
 }
 
