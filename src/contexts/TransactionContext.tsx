@@ -1,9 +1,8 @@
-import React, { createContext, useReducer } from 'react';
+import { createContext, useReducer } from 'react';
 import TransactionReducer from './TransactionReducer'
 import { ApplicationState, ITransaction, ChildrenProps } from '../types';
-// import axios from 'axios';
 
-const storageTransactions = localStorage.getItem('transactions') ? JSON.parse(localStorage.getItem('transactions')!) : [] 
+const storageTransactions: [] = localStorage.getItem('transactions') ? JSON.parse(localStorage.getItem('transactions')!) : [] 
 
 const initialState = {
   transactions: storageTransactions,
