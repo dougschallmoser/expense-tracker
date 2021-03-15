@@ -31,10 +31,10 @@ function CreateTransaction() {
     const newObj = {
       id: Math.floor(Math.random() * 100000000),
       subject: transaction.subject,
-      amount: transaction.type === "income-type" ? +transaction.amount : +transaction.amount * -1
+      amount: transaction.type === "income-type" ? transaction.amount : (+transaction.amount * -1).toString()
     }
 
-    addTransaction(newObj)
+    addTransaction!(newObj)
 
     setTransaction({
       subject: '',
