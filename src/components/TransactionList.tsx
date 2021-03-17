@@ -2,11 +2,11 @@ import { useContext } from 'react';
 import Transaction from './Transaction';
 import { TransactionContext } from '../contexts/TransactionContext';
 
-function TransactionList() {
+function TransactionList(): JSX.Element {
 
   const { transactions } = useContext(TransactionContext);
 
-  const renderTransactions = transactions.map(transaction => {
+  const renderTransactions: JSX.Element[] = transactions.map(transaction => {
     return (
       <Transaction key={transaction.id} transaction={transaction} />
     )

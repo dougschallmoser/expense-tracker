@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { TransactionContext } from '../contexts/TransactionContext';
 import { formatAmount } from '../utils/format';
 
-function Balance() {
+function Balance(): JSX.Element {
 
   const { transactions } = useContext(TransactionContext);
 

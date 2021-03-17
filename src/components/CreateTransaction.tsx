@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { TransactionContext } from '../contexts/TransactionContext';
 
-function CreateTransaction() {
+function CreateTransaction(): JSX.Element {
 
   const { addTransaction } = useContext(TransactionContext);
 
@@ -11,11 +11,11 @@ function CreateTransaction() {
     type: ''
   })
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
     if (event.target.name === 'amount') {
       const regexPattern = /^(\d+(\.\d{0,2})?|\.?\d{1,2})$/
       if (!regexPattern.test(event.target.value)) {
-        return
+        return;
       }
     }
 
@@ -25,7 +25,7 @@ function CreateTransaction() {
     })
   }
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>): void => {
     event.preventDefault();
     
     const newObj = {
@@ -43,7 +43,7 @@ function CreateTransaction() {
     })
   }
 
-  const disabled = transaction.subject === '' || transaction.amount === '' || transaction.type === ''
+  const disabled: boolean = transaction.subject === '' || transaction.amount === '' || transaction.type === ''
   const { subject, amount, type } = transaction;
 
   return (

@@ -5,7 +5,7 @@ import TransactionList from './TransactionList';
 import CreateTransaction from './CreateTransaction';
 import { TransactionContextProvider } from '../contexts/TransactionContext';
 
-function App() {
+function App(): JSX.Element {
   return (
     <div className="main-container">
       <TransactionContextProvider>

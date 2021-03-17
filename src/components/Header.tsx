@@ -1,4 +1,4 @@
-function Header() {
+function Header(): JSX.Element {
   return (
     <h2>
       Doug's Expense Tracker
