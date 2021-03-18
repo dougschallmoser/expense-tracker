@@ -1,17 +1,17 @@
-import { ApplicationState, StateAction, ITransaction, ActionType } from '../types';
+import { ApplicationState, Action, ITransaction, ActionType } from '../types';
 
 const setStorage = (transactions: ITransaction[]) => {
   localStorage.setItem('transactions', JSON.stringify(transactions.length > 0 ? transactions : []))
 }
 
-function TransactionReducer(state: ApplicationState, action: StateAction) {
+function TransactionReducer(state: ApplicationState, action: Action) {
   switch (action.type) {
-    case ActionType.Get:
-      return {
-        ...state,
-        loading: false,
-        transactions: action.payload
-      }
+    // case ActionType.Get:
+    //   return {
+    //     ...state,
+    //     loading: false,
+    //     transactions: action.payload
+    //   }
 
     case ActionType.Delete:
       const removedTransaction = state.transactions.find(trans => trans.id === action.payload);
@@ -32,11 +32,11 @@ function TransactionReducer(state: ApplicationState, action: StateAction) {
         transactions: [...state.transactions]
       }
 
-    case ActionType.Error:
-      return {
-        ...state,
-        error: action.payload
-      }
+    // case ActionType.Error:
+    //   return {
+    //     ...state,
+    //     error: action.payload
+    //   }
 
     default: 
       return state

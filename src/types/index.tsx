@@ -12,11 +12,6 @@ export interface ApplicationState {
   loading: boolean
 }
 
-export interface StateAction {
-  type: string;
-  payload: any;
-}
-
 export interface ChildrenProps {
   children?: React.ReactNode
 }
@@ -27,3 +22,15 @@ export enum ActionType {
   Add = 'ADD_TRANSACTION',
   Error = 'TRANSACTION_ERROR'
 }
+
+export interface AddTransactionAction {
+  type: ActionType.Add;
+  payload: ITransaction
+}
+
+export interface DeleteTransactionAction {
+  type: ActionType.Delete;
+  payload: number
+}
+
+export type Action = AddTransactionAction | DeleteTransactionAction
