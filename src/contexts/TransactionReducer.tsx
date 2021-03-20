@@ -6,14 +6,7 @@ const setStorage = (transactions: ITransaction[]) => {
 
 function TransactionReducer(state: ApplicationState, action: Action) {
   switch (action.type) {
-    // case ActionType.Get:
-    //   return {
-    //     ...state,
-    //     loading: false,
-    //     transactions: action.payload
-    //   }
-
-    case ActionType.Delete:
+    case ActionType.DELETE:
       const removedTransaction = state.transactions.find(trans => trans.id === action.payload);
       state.transactions.splice(state.transactions.indexOf(removedTransaction!), 1);
       setStorage(state.transactions);
@@ -23,7 +16,7 @@ function TransactionReducer(state: ApplicationState, action: Action) {
         transactions: [...state.transactions]
       }
 
-    case ActionType.Add:
+    case ActionType.ADD:
       state.transactions.unshift(action.payload);
       setStorage(state.transactions);
 
@@ -31,13 +24,17 @@ function TransactionReducer(state: ApplicationState, action: Action) {
         ...state,
         transactions: [...state.transactions]
       }
-
-    // case ActionType.Error:
+    // case ActionType.GET:
+    //   return {
+    //     ...state,
+    //     loading: false,
+    //     transactions: action.payload
+    //   }
+    // case ActionType.ERROR:
     //   return {
     //     ...state,
     //     error: action.payload
     //   }
-
     default: 
       return state
   }

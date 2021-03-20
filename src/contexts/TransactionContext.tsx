@@ -34,7 +34,6 @@ export const TransactionContextProvider = ({ children }: ChildrenProps) => {
     })
   }
 
-  // Async Action
   // async function getTransactions() {
   //   try {
   //     const response = await axios.get('')
@@ -55,7 +54,6 @@ export const TransactionContextProvider = ({ children }: ChildrenProps) => {
       transactions: state.transactions,
       addTransaction,
       deleteTransaction,
-      // getTransactions,
       error: state.error,
       loading: state.loading
 

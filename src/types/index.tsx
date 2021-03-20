@@ -17,19 +17,19 @@ export interface ChildrenProps {
 }
 
 export enum ActionType {
-  Get = 'GET_TRANSACTIONS',
-  Delete = 'DELETE_TRANSACTION',
-  Add = 'ADD_TRANSACTION',
-  Error = 'TRANSACTION_ERROR'
+  GET = 'GET_TRANSACTIONS',
+  DELETE = 'DELETE_TRANSACTION',
+  ADD = 'ADD_TRANSACTION',
+  ERROR = 'TRANSACTION_ERROR'
 }
 
 export interface AddTransactionAction {
-  type: ActionType.Add;
+  type: ActionType.ADD;
   payload: ITransaction
 }
 
 export interface DeleteTransactionAction {
-  type: ActionType.Delete;
+  type: ActionType.DELETE;
   payload: number
 }
 
