@@ -1,8 +1,9 @@
 import { createContext, useReducer } from 'react';
 import TransactionReducer from './TransactionReducer'
-import { ApplicationState, ITransaction, ChildrenProps } from '../types';
+import { ApplicationState, ITransaction } from '../types';
+import { ActionType } from './action-types';
 
-const storageTransactions: [] = localStorage.getItem('transactions') ? JSON.parse(localStorage.getItem('transactions')!) : [] 
+const storageTransactions: ITransaction[] = localStorage.getItem('transactions') ? JSON.parse(localStorage.getItem('transactions')!) : [] 
 
 const initialState = {
   transactions: storageTransactions,
@@ -11,24 +12,19 @@ const initialState = {
 
 export const TransactionContext = createContext<ApplicationState>(initialState);
 
-const asyncer = (dispatch: any, state: ApplicationState) => (action: any) =>
-  typeof action === 'function' ? action(dispatch, state) : dispatch(action);
-
-export const TransactionContextProvider = ({ children }: ChildrenProps) => {
-  const [state, dispatchBase] = useReducer(TransactionReducer, initialState)
-
-  const dispatch = asyncer(dispatchBase, state)
+export const TransactionContextProvider: React.FC = ({ children }) => {
+  const [state, dispatch] = useReducer(TransactionReducer, initialState)
 
   function deleteTransaction(id: number) {
     dispatch({
-      type: 'DELETE_TRANSACTION',
+      type: ActionType.DELETE,
       payload: id
     })
   }
   
   function addTransaction(transaction: ITransaction) {
     dispatch({
-      type:'ADD_TRANSACTION',
+      type: ActionType.ADD,
       payload: transaction
     })
   }

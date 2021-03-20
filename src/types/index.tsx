@@ -11,7 +11,3 @@ export interface ApplicationState {
   deleteTransaction?(id: number): void,
   loading: boolean
 }
-
-export interface ChildrenProps {
-  children?: React.ReactNode
-}
