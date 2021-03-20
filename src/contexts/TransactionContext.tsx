@@ -19,7 +19,6 @@ export const TransactionContextProvider = ({ children }: ChildrenProps) => {
 
   const dispatch = asyncer(dispatchBase, state)
 
-  // Actions
   function deleteTransaction(id: number) {
     dispatch({
       type: 'DELETE_TRANSACTION',

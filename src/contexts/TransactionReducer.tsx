@@ -1,4 +1,6 @@
-import { ApplicationState, Action, ITransaction, ActionType } from '../types';
+import { ApplicationState, ITransaction } from '../types';
+import { ActionType } from './action-types';
+import { Action } from './actions';
 
 const setStorage = (transactions: ITransaction[]) => {
   localStorage.setItem('transactions', JSON.stringify(transactions.length > 0 ? transactions : []))

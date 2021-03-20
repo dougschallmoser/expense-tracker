@@ -15,22 +15,3 @@ export interface ApplicationState {
 export interface ChildrenProps {
   children?: React.ReactNode
 }
-
-export enum ActionType {
-  GET = 'GET_TRANSACTIONS',
-  DELETE = 'DELETE_TRANSACTION',
-  ADD = 'ADD_TRANSACTION',
-  ERROR = 'TRANSACTION_ERROR'
-}
-
-export interface AddTransactionAction {
-  type: ActionType.ADD;
-  payload: ITransaction
-}
-
-export interface DeleteTransactionAction {
-  type: ActionType.DELETE;
-  payload: number
-}
-
-export type Action = AddTransactionAction | DeleteTransactionAction
